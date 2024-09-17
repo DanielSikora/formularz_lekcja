@@ -14,7 +14,7 @@ function Form({ formType }) {
     const { name, value } = e.target; // Pobieramy nazwę i wartość aktualizowanego inputu
     // Aktualizujemy stan formData, używając spread operator, aby nadpisać tylko zmienione pole
     setFormData({
-      ...formData,
+      ...formData,// ... to spread datam rozbija nam na pojedyńcze wartości
       [name]: value,
     });
   };
