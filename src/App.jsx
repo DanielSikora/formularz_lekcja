@@ -3,37 +3,22 @@ import Navbar from './components/navbar'; // Import komponentu Navbar, który wy
 import Footer from './components/footer'; // Import komponentu Footer, który wyświetla stopkę.
 import Form from './components/Form'; // Import komponentu Form, który będzie wyświetlał formularze logowania i rejestracji.
 import './App.css'; // Import pliku CSS z głównymi stylami aplikacji.
+import LoginApp from './components/LoginApp';
+import RegisterApp from './components/RegisterApp';
 
 function App() {
   // Używamy useState, aby zarządzać aktualnie wyświetlanym formularzem (logowanie lub rejestracja).
   // Początkowy stan to 'login', co oznacza, że formularz logowania jest domyślnie wyświetlany.
-  const [formType, setFormType] = useState('login');
+  const [currentPage, setCurrentPage] = useState('login');
 
   return (
     <div>
       {/* Navbar z przekazaniem funkcji setFormType, która będzie zmieniać widoczny formularz na logowanie lub rejestrację. */}
-      <Navbar setFormType={setFormType} />
+      <Navbar setFormType={setCurrentPage} />
 
       <main>
-        <div className="form-container">
-          {/* Jeśli formType jest 'login', wyświetla się formularz logowania. */}
-          {formType === 'login' && (
-            <div className="form-box">
-              <h2>Logowanie</h2>
-              {/* Komponent Form wyświetla formularz logowania z przekazaniem props formType="login". */}
-              <Form formType="login" />
-            </div>
-          )}
-
-          {/* Jeśli formType jest 'register', wyświetla się formularz rejestracji. */}
-          {formType === 'register' && (
-            <div className="form-box">
-              <h2>Rejestracja</h2>
-              {/* Komponent Form wyświetla formularz rejestracji z przekazaniem props formType="register". */}
-              <Form formType="register" />
-            </div>
-          )}
-        </div>
+        {currentPage === 'login' && <LoginApp />}
+        {currentPage === 'register' && <RegisterApp />}
       </main>
 
       {/* Wyświetlamy komponent Footer na dole strony. */}
