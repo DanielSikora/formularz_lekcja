@@ -1,7 +1,6 @@
 import React, { useState } from 'react'; // Importujemy React i useState, aby móc zarządzać stanem aplikacji.
 import Navbar from './components/navbar'; // Import komponentu Navbar, który wyświetla pasek nawigacyjny.
 import Footer from './components/footer'; // Import komponentu Footer, który wyświetla stopkę.
-import Form from './components/Form'; // Import komponentu Form, który będzie wyświetlał formularze logowania i rejestracji.
 import './App.css'; // Import pliku CSS z głównymi stylami aplikacji.
 import LoginApp from './components/LoginApp';
 import RegisterApp from './components/RegisterApp';
